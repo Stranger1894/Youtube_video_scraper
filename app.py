@@ -67,7 +67,7 @@ def index():
                 request = youtube.playlistItems().list(
                     part='contentDetails',
                     playlistId=playlist_id,
-                    maxResults=2)
+                    maxResults=50)
 
                 response = request.execute()
 
