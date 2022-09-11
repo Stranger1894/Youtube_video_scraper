@@ -8,7 +8,6 @@ import json
 import os
 import pymongo
 import pandas as pd
-import snowflake.connector
 from snowflake.sqlalchemy import URL
 from sqlalchemy import create_engine
 from pytube import YouTube
@@ -223,6 +222,7 @@ def index():
         print("Starting Mongo Export...")
         try:
             client = pymongo.MongoClient(os.environ.get("MONGO_DB_LINK"))
+            print("connection established with Mongo DB")
             records = get_comments_details_mongodb(youtube, video_ids)
             database = client['Youtuber_data']
             collection = database[channelname]
